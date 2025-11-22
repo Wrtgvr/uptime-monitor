@@ -18,6 +18,7 @@ type ServerConfig struct {
 type Config struct {
 	Env      string
 	Server   *ServerConfig
+	Storage  *StorageConfig
 	Database *DatabaseConfig
 	Redis    *RedisConfig
 }
