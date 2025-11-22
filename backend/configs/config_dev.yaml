@@ -1,6 +1,10 @@
 server:
   server_port: 8080
   server_shutdown_timeout: 60
+storage:
+  max_monitors_per_user: 30
+  min_check_interval: 60 # in seconds
+  default_retention_days: 3
 database:
   db_host: postgres_db
   db_port: 5432
