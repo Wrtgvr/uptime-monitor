@@ -1,5 +1,8 @@
 package config
 
+// Database config is about connection to DB
+// Storage config is about storage rules
+
 import "os"
 
 type DatabaseConfig struct {
