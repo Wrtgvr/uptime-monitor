@@ -2,52 +2,74 @@ package errs
 
 import "net/http"
 
-func NewInternalError(err error, details []string) *AppError {
-	return &AppError{
-		Type:    TypeInternalError,
-		Message: "internal server error",
-		Err:     err,
-		Details: details,
-		Code:    http.StatusInternalServerError,
-	}
-}
-
-func NewNotFound(err error, details []string, msg string) *AppError {
+// 4XX
+func NewNotFound(err error) *AppError {
 	return &AppError{
 		Type:    TypeNotFound,
-		Message: msg,
+		Message: "Not Found",
 		Err:     err,
-		Details: details,
+		Details: make([]string, 0),
 		Code:    http.StatusNotFound,
 	}
 }
 
-func NewBadRequest(err error, details []string, msg string) *AppError {
+func NewBadRequest(err error) *AppError {
 	return &AppError{
 		Type:    TypeBadRequest,
-		Message: msg,
+		Message: "Bad Request",
 		Err:     err,
-		Details: details,
+		Details: make([]string, 0),
 		Code:    http.StatusBadRequest,
 	}
 }
 
-func NewUnauthorized(err error, details []string, msg string) *AppError {
+func NewUnauthorized(err error) *AppError {
 	return &AppError{
 		Type:    TypeUnauthorized,
-		Message: msg,
+		Message: "Unauthorized",
 		Err:     err,
-		Details: details,
+		Details: make([]string, 0),
 		Code:    http.StatusUnauthorized,
 	}
 }
 
-func NewForbidden(err error, details []string) *AppError {
+func NewForbidden(err error) *AppError {
 	return &AppError{
 		Type:    TypeForbidden,
-		Message: "access denied",
+		Message: "Forbidden",
 		Err:     err,
-		Details: details,
+		Details: make([]string, 0),
 		Code:    http.StatusForbidden,
+	}
+}
+
+func NewConflict(err error) *AppError {
+	return &AppError{
+		Type:    TypeConflict,
+		Message: "Conflict",
+		Err:     err,
+		Details: make([]string, 0),
+		Code:    http.StatusConflict,
+	}
+}
+
+func NewTooManyRequests(err error) *AppError {
+	return &AppError{
+		Type:    TypeTooManyRequests,
+		Message: "Too Many Requests",
+		Err:     err,
+		Details: make([]string, 0),
+		Code:    http.StatusTooManyRequests,
+	}
+}
+
+// 5XX
+func NewInternalError(err error) *AppError {
+	return &AppError{
+		Type:    TypeInternalError,
+		Message: "Internal Server Error",
+		Err:     err,
+		Details: make([]string, 0),
+		Code:    http.StatusInternalServerError,
 	}
 }
