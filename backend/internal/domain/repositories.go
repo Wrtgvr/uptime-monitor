@@ -28,8 +28,8 @@ type MonitorRepo interface {
 }
 
 type CheckResultRepo interface {
-	GetLastMonitorResults(ctx context.Context, monitorId uuid.UUID, from, to time.Time)
-	GetCheckResult(context.Context, uuid.UUID) (*CheckResult, *errs.AppError)
+	GetLastMonitorResults(ctx context.Context, monitorId uuid.UUID, from, to time.Time) ([]*CheckResult, *errs.AppError)
+	GetLastMonitorCheckResult(ctx context.Context, monitorId uuid.UUID) (*CheckResult, *errs.AppError)
 	CreateCheckResult(context.Context, *CheckResult) *errs.AppError
 	DeleteCheckResult(context.Context, uuid.UUID) *errs.AppError
 }
