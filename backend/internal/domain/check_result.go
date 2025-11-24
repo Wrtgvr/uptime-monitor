@@ -14,10 +14,3 @@ type CheckResult struct {
 	ErrorMessage  string
 	CreatedAt     time.Time
 }
-
-type CheckResultCreate struct {
-	MonitorID                uuid.UUID
-	StatusCode, ResponseTime int
-	Success                  bool
-	ErrorMessage             string
-}
